@@ -20,3 +20,21 @@ def sign_out
   visit('/')
   click_link('Sign out')
 end
+
+def add_post(text)
+  visit '/posts'
+  click_link 'Create a post'
+  fill_in 'post_text', with: text
+  click_button 'Create post'
+end
+
+def visit_post(text)
+  visit '/posts'
+  click_link text
+end
+
+def edit_post(text)
+  click_link 'Edit'
+  fill_in 'post_text', with: text
+  click_button 'Edit post'
+end

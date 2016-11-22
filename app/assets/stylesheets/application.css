@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require purecss
+ *= require purecss-addons
+*/
+*= require purecss-dropdown

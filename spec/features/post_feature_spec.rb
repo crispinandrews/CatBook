@@ -11,7 +11,7 @@ feature 'posts' do
   end
 
   context 'adding a post' do
-    scenario 'lets a user add a post' do
+    scenario 'lets a user add a text post' do
       visit '/posts'
       click_link 'Create a post'
       fill_in 'Text', with: "Miaow miaow"
@@ -30,4 +30,5 @@ feature 'posts' do
       expect(current_path).to eq "/posts/#{kitty.id}"
     end
   end
+
 end

@@ -1,0 +1,5 @@
+<div>
+  <p><%= @post.text %></p>
+  <p><%= image_tag @post.image.url(:large) %></p>
+  <p><%= time_ago_in_words(@post.created_at) %> ago</p>
+</div>

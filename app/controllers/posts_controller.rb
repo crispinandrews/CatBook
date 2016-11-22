@@ -12,11 +12,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = 'Post saved successfully'
-			redirect_to posts_path
-		else
+      redirect_to posts_path
+    else
       flash[:notice] = 'Post did not save'
-			render 'new'
-		end
+      render 'new'
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private

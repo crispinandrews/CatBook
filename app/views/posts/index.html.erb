@@ -1,2 +1,8 @@
-<h2>No posts</h2>
-<%= link_to 'Create a post', new_post_url %>
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <a href="<%= post_path(post) %>"><%= post.text %></a>
+  <% end %>
+<% else %>
+  <h2>No posts</h2>
+<% end %>
+<p><%= link_to 'Create a post', new_post_url %></p>

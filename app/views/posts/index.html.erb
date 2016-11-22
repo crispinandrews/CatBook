@@ -1,1 +1,16 @@
-<h2>No posts</h2>
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <div>
+      <p><%= time_ago_in_words(post.created_at) + " ago" %></p>
+        <a href="<%= post_path(post) %>">
+          <p><%= post.text %></p>
+          <% if !post.image_file_name.nil? %>
+            <p><%= image_tag post.image.url(:medium) %></p>
+          <% end %>
+        </a>
+    </div>
+  <% end %>
+<% else %>
+  <h2>No posts</h2>
+<% end %>
+<p><%= link_to 'Create a post', new_post_url %></p>

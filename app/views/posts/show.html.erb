@@ -1,5 +1,11 @@
-<div>
-  <p><%= @post.text %></p>
-  <p><%= image_tag @post.image.url(:large) %></p>
-  <p><%= time_ago_in_words(@post.created_at) %> ago</p>
+<div class="bigger_whitebox">
+  <h2><%= @post.text %></h2>
+  <% unless @post.image_file_name.nil? %>
+    <p><%= image_tag @post.image.url(:large) %></p>
+  <% end %>
+  <p>By petname, <%= time_ago_in_words(@post.created_at) + " ago" %></p>
+  <div class="post_links">
+    <%= link_to "Edit", edit_post_url(@post.id), class: "pure-button" %>
+    <%= link_to "Delete", post_path(@post), method: :delete, class: "pure-button" %>
+  </div>
 </div>

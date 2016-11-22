@@ -1,16 +1,15 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-    <div>
-      <p><%= time_ago_in_words(post.created_at) + " ago" %></p>
-        <a href="<%= post_path(post) %>">
-          <p><%= post.text %></p>
-          <% if !post.image_file_name.nil? %>
-            <p><%= image_tag post.image.url(:medium) %></p>
-          <% end %>
-        </a>
-    </div>
+    <a href="<%= post_path(post) %>">
+      <div class="bigger_whitebox">
+        <h2><%= post.text %></h2>
+        <% unless post.image_file_name.nil? %>
+          <p><%= image_tag post.image.url(:medium) %></p>
+        <% end %>
+        <p>By petname, <%= time_ago_in_words(post.created_at) + " ago" %></p>
+      </div>
+    </a>
   <% end %>
 <% else %>
   <h2>No posts</h2>
 <% end %>
-<p><%= link_to 'Create a post', new_post_url %></p>

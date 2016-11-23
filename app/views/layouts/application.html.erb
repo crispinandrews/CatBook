@@ -5,22 +5,16 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render "shared/purecss" %>
+   <%= render 'shared/purecss' %>
   </head>
-  <body>
-    <div class="header">
-      <%= render "shared/user_management" %>
-    </div>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-4">
-      </div>
-      <div class="content pure-u-1 pure-u-md-3-4">
-        <div class="main">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-          <%= yield %>
-        </div>
-      </div>
-    </div>
-  </body>
+ <body>
+   <div class="header">
+     <%= render 'shared/user_management' %>
+   </div>
+   <div class="main">
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+     <%= yield %>
+   </div>
+ </body>
 </html>

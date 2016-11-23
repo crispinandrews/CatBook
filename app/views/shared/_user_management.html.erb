@@ -10,7 +10,7 @@
     </li>
   <% if user_signed_in? %>
     <li class="pure-menu-item">
-      <a href="/<%= current_user.petname %>" class = "pure-menu-link">Your Profile</a>
+      <a href="/<%= current_user.petname %>" class="pure-menu-link">Your profile</a>
     </li>
     <li class="pure-menu-item">
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "pure-menu-link" %>

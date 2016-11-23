@@ -12,7 +12,6 @@ feature 'profile' do
       click_link 'Your profile'
       expect(page).to have_content 'fido'
       expect(page).to have_content 'No posts yet'
-      expect(page).to have_link 'Add a profile picture'
       expect(page).to have_link 'Add your hometown'
       expect(page).to have_link 'Add your hobbies'
     end

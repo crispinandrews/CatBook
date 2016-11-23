@@ -14,9 +14,20 @@
       <p class="post_image"><%= image_tag @post.image.url(:large) %></p>
     </a>
   <% end %>
+  <% if @comments.any? %>
+   <% @comments.each do |c| %>
+   <div class="comments">
+     <p><%= c.comments %>"</p>
+     <p><%= c.created_at.strftime("%d %b %Y - %H:%M") %></p>
+   </div>
+   <% end %>
+ <% else %>
+   <p>No comments have been added yet.</p>
+ <% end %>
   <div class="react_and_comment">
-    Like | Comment |
+    Like |  |
     <%= link_to "Edit", edit_post_url(@post.id) %> |
     <%= link_to "Delete", post_path(@post) %>
+    <%= link_to "Comments", new_post_comment_path(@post) %>
   </div>
 </div>

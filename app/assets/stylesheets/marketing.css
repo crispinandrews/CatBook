@@ -4,13 +4,15 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
   line-height: 1.7em;
   color: #7f8c8d;
   font-size: 13px;
   background: #eee;
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 h1,
@@ -142,11 +144,63 @@ a.pure-button-primary {
  }
 
 .main {
-  width: 600px;;
+  width: 50%;
   margin: auto;
-  margin-top: 80px;
+  margin-top: 70px;
   margin-bottom: 30px;
   overflow: hidden;
+}
+
+.aside_left {
+  width: 20%;
+  margin: auto;
+  margin-bottom: 30px;
+  height: auto;
+  overflow: hidden;
+  float: left;
+  border-right: solid black 2px;
+  height: 100%;
+}
+
+.inside_left {
+  background-color: grey;
+  border: solid black 1px;
+  width: 90%;
+  height: 50%;
+  margin: 0 auto;
+  height: inherit;
+  text-align: left;
+}
+
+.inside_left p {
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.aside_right {
+  width: 20%;
+  margin: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+  float: right;
+  border-left: dashed black 2px;
+  height: 150%;
+}
+
+.inside_right {
+  border: solid black 1px;
+  width: 90%;
+  margin: 0 auto;
+  height: 200px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  overflow: scroll;
+  height: 250px;
+}
+
+.inside_right a {
 }
 
 .main a {

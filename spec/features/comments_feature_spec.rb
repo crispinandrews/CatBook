@@ -13,7 +13,7 @@ feature 'comments' do
     click_link 'Comments'
     fill_in "Comments", with: 'No its not'
     click_button 'Leave Comment'
-    expect(current_path).to eq '/posts/1'
+    expect(current_path).to eq '/posts'
     expect(page).to have_content('No its not')
   end
 end

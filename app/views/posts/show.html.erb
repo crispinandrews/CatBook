@@ -25,9 +25,9 @@
    <p>No comments have been added yet.</p>
  <% end %>
   <div class="react_and_comment">
-    Like |  |
+    Like |
     <%= link_to "Edit", edit_post_url(@post.id) %> |
-    <%= link_to "Delete", post_path(@post) %>
+    <%= link_to "Delete", post_path(@post) %> |
     <%= link_to "Comments", new_post_comment_path(@post) %>
   </div>
 </div>

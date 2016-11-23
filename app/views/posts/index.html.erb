@@ -16,10 +16,16 @@
           <p class="post_image"><%= image_tag post.image.url(:medium) %></p>
         </a>
       <% end %>
+      <% if post.comments.any? %>
+        <% post.comments.each do |comment| %>
+          <p><%= comment.comments %><p>
+
+        <% end %>
+      <% end %>
       <div class="react_and_comment">
-        Like | Comment |
+        Like |
         <%= link_to "Edit", edit_post_url(post.id) %> |
-        <%= link_to "Delete", post_path(post), method: :delete %>
+        <%= link_to "Delete", post_path(post), method: :delete %> |
         <%= link_to "Comments", new_post_comment_path(post.id) %>
       </div>
     </div>

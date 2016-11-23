@@ -1,17 +1,17 @@
 <h2>Log in</h2>
 
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<form class ="pure-form">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'pure-form' }) do |f| %>
   <fieldset class="pure-group">
-  <div class="pure-group">
-    <%= f.email_field :email, autofocus: true %><br>
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="field">
+    <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
+    <div class="remember_me">
+      <div class="remember_me_check_box">
+        <%= f.check_box :remember_me %>
+      </div>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
@@ -21,5 +21,4 @@
   </div>
 <% end %>
   </fieldset>
-</form>
 <%= render "devise/shared/links" %>

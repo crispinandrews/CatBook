@@ -196,3 +196,9 @@ textarea#post_text {
   border-top: 1px solid #CCC;
   padding-top: 10px;
 }
+
+.remember_me_check_box {
+  display: inline-block;
+  width: 3%;
+  vertical-align: middle;
+}

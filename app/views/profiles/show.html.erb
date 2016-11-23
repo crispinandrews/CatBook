@@ -1,0 +1,34 @@
+<div class="whitebox">
+  <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+  <h2><%= @user.petname %> Profile Page</h2>
+  <p><a href="#">Add your hometown</a></p>
+  <p><a href="#">Add your hobbies<a/></p>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div class="whitebox">
+        <div class="post_header">
+          <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+          <div class="petname_and_time">
+            <span><%= post.user.petname %><br></span>
+            <span class="time_ago"><%= time_ago_in_words(post.created_at) + " ago" %><span>
+          </div>
+        </div>
+        <% if post.image_file_name.nil? %>
+          <h2 class="post_text"><%= post.text %></h2>
+        <% else %>
+          <h4 class="post_text"><%= post.text %></h4>
+          <a href="<%= post_path(post) %>">
+            <p class="post_image"><%= image_tag post.image.url(:medium) %></p>
+          </a>
+        <% end %>
+        <div class="react_and_comment">
+          Like | Comment |
+          <%= link_to "Edit", edit_post_url(post.id) %> |
+          <%= link_to "Delete", post_path(post), method: :delete %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h2>No posts yet</h2>
+  <% end %>
+</div>

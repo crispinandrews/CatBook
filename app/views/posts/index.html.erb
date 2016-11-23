@@ -4,7 +4,7 @@
       <div class="post_header">
         <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
         <div class="petname_and_time">
-          <span><%= post.user.petname %><br></span>
+          <a href="/<%= post.user.petname %>"><%= post.user.petname %></a><br>
           <span class="time_ago"><%= time_ago_in_words(post.created_at) + " ago" %><span>
         </div>
       </div>

@@ -17,7 +17,7 @@
   <% if @comments.any? %>
    <% @comments.each do |c| %>
    <div class="comments">
-     <p><%= c.comments %>"</p>
+     <p><%= c.comments %></p>
      <p><%= c.created_at.strftime("%d %b %Y - %H:%M") %></p>
    </div>
    <% end %>

@@ -1,34 +1,21 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'pure-form' }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :petname %><br />
-    <%= f.text_field :petname, autofocus: true %>
-  </div>
+  <fieldset class="pure-group">
+    <div class="field">
+      <%= f.text_field :petname, placeholder: "Petname", autofocus: true %>
+      <%= f.email_field :email, placeholder: "Email" %>
+      <%= f.password_field :password,
+                          placeholder: "Password ... " + @minimum_password_length.to_s + " characters minimum",
+                          autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+    <%= f.submit "Sign up", class: "pure-button pure-button-primary" %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  </fieldset>
 <% end %>
 
 <%= render "devise/shared/links" %>

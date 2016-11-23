@@ -1,5 +1,7 @@
 <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-  <%= link_to 'CatHub', root_url, class: "pure-menu-heading" %>
+  <%= link_to root_url, class: "pure-menu-heading" do %>
+    <%= image_tag "cathublogo.png", style: "width:70px;height:40px;" %>
+  <% end %>
   <span class="strapline">The antisocial network</span>
   <ul class="pure-menu-list">
     <li class="pure-menu-item">

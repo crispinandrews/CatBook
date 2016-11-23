@@ -85,6 +85,7 @@ a.pure-button-primary {
   color: white;
   font-weight: 400;
   font-size: 120%;
+  height: 50px;
 }
 
 .home-menu .pure-menu-selected a {
@@ -141,7 +142,7 @@ a.pure-button-primary {
  }
 
 .main {
-  width: 670px;;
+  width: 600px;;
   margin: auto;
   margin-top: 80px;
   margin-bottom: 30px;
@@ -169,6 +170,7 @@ a.pure-button-primary {
   float: left;
   width:50px;
   height:50px;
+  margin-right: 10px;
 }
 
 .time_ago {
@@ -194,4 +196,10 @@ textarea#post_text {
 .post_links {
   border-top: 1px solid #CCC;
   padding-top: 10px;
+}
+
+.remember_me_check_box {
+  display: inline-block;
+  width: 3%;
+  vertical-align: middle;
 }

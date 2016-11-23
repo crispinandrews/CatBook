@@ -1,11 +1,36 @@
-<div class="bigger_whitebox">
+<div class="whitebox">
+  <div class="post_header">
+    <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+    <div class="petname_and_time">
+      <p><%= @user.petname %><br>
+      <span class="time_ago"><%= time_ago_in_words(@post.created_at) + " ago" %><span>
+    </div>
+  </div>
+  <% if @post.image_file_name.nil? %>
+    <h2 class="post_text"><%= @post.text %></h2>
+  <% else %>
+    <h4 class="post_text"><%= @post.text %></h4>
+    <a href="<%= post_path(@post) %>">
+      <p class="post_image"><%= image_tag @post.image.url(:large) %></p>
+    </a>
+  <% end %>
+  <div class="react_and_comment">
+    Like | Comment |
+    <%= link_to "Edit", edit_post_url(@post.id) %> | 
+    <%= link_to "Delete", post_path(@post) %>
+  </div>
+</div>
+
+<!--
+<div class="whitebox">
+  <p><%= @user.petname %><p>
+  <p><%= time_ago_in_words(@post.created_at) + " ago" %></p>
   <h2><%= @post.text %></h2>
   <% unless @post.image_file_name.nil? %>
     <p><%= image_tag @post.image.url(:large) %></p>
   <% end %>
-  <p>By petname, <%= time_ago_in_words(@post.created_at) + " ago" %></p>
   <div class="post_links">
     <%= link_to "Edit", edit_post_url(@post.id), class: "pure-button" %>
     <%= link_to "Delete", post_path(@post), method: :delete, class: "pure-button" %>
   </div>
-</div>
+</div> -->

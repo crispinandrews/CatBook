@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  resources :posts do
-      resources :comments
+  resources :posts, shallow: true do
+      resources :comments 
+      resources :likes
   end
 
   get ':petname', to: 'profiles#show', as: :profile

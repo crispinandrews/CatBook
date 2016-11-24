@@ -16,11 +16,14 @@
           <p class="post_image"><%= image_tag post.image.url(:medium) %></p>
         </a>
       <% end %>
+
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <p><%= comment.comments %><p>
-
         <% end %>
+      <% end %>
+      <% post.likes.each do |post| %>
+        <p><%= pluralize post.likes.count, 'Like' %></p>
       <% end %>
       <div class="react_and_comment">
         Like |

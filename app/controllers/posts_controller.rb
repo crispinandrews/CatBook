@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
+  before_action :require_permisson, only: [:edit, :update, :destroy]
+
 
   def index
     @posts = Post.all.order("created_at DESC")
@@ -49,5 +51,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:text, :image)
+  end
+
+  def require_permisson
+    post = Post.find(params[:id])
+    if current_user != post.user
+      flash[:notice] = 'You are not the owner of this post'
+      redirect_to posts_path
+    end
   end
 end

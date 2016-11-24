@@ -23,6 +23,7 @@
             <%= comment.comments %> <br/>
             <%= time_ago_in_words(comment.created_at) + " ago" %>
             <%= link_to "Edit", edit_post_comment_url(comment.post.id, comment.id) %>
+            <%= link_to "Delete", post_comment_path(comment.post.id, comment.id), method: :delete %>
           <div>
 
         <% end %>

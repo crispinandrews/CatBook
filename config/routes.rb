@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :posts, shallow: true do
-      resources :comments 
+      resources :comments do
+        resources :likes
+      end
       resources :likes
   end
 

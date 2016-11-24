@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  respond_to :html, :js
 
   def create
     @post = Post.find(params[:post_id])

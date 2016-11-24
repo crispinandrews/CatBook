@@ -7,8 +7,13 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @post.comments.create(comment_params)
-    redirect_to ('/posts')
+    @comment = @post.comments.new(comment_params)
+    @comment.user = current_user
+    if @comment.save
+      redirect_to ('/posts')
+    else
+      render :new
+    end
   end
 
     private

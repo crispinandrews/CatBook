@@ -22,6 +22,7 @@
             <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a>:
             <%= comment.comments %> <br/>
             <%= time_ago_in_words(comment.created_at) + " ago" %>
+            <%= link_to "Edit", edit_post_comment_url(comment.post.id, comment.id) %>
           <div>
 
         <% end %>

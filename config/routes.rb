@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :posts do
       resources :comments
   end
-
+  resources :relationships
   get ':petname', to: 'profiles#show', as: :profile
   get ':petname/edit', to: 'profiles#edit', as: :edit_profile
   patch ':petname/edit', to: "profiles#update", as: :update_profile

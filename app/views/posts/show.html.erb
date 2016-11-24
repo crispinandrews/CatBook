@@ -25,7 +25,8 @@
    <p>No comments have been added yet.</p>
  <% end %>
   <div class="react_and_comment">
-    Like |
+    <%= link_to "Like", post_likes_path(@post), class: 'likes-link' %> |
+    <span class="likes_count"> <%= @post.likes.count %> </span> <%= 'like'.pluralize(@post.likes.count) %> |
     <%= link_to "Edit", edit_post_url(@post.id) %> |
     <%= link_to "Delete", post_path(@post) %> |
     <%= link_to "Comments", new_post_comment_path(@post) %>

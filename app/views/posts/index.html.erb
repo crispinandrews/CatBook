@@ -19,11 +19,13 @@
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <p><%= comment.comments %><p>
-
+          <%= link_to "Like", new_comment_like_path(comment), class: 'comment_likes-link' %>
+          <span class="comment_likes_count"> <%= comment.comment_likes.count %> </span> <%= 'like'.pluralize(comment.comment_likes.count) %>
         <% end %>
       <% end %>
       <div class="react_and_comment">
-        Like |
+        <%= link_to "Like", post_likes_path(post), class: 'likes-link' %> |
+        <span class="likes_count"> <%= post.likes.count %> </span> <%= 'like'.pluralize(post.likes.count) %> |
         <%= link_to "Edit", edit_post_url(post.id) %> |
         <%= link_to "Delete", post_path(post), method: :delete %> |
         <%= link_to "Comments", new_post_comment_path(post.id) %>

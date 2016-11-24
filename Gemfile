@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 # gem 'purecss'
+gem 'poltergeist'
+gem 'database_cleaner'
 gem 'devise'
 gem 'paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

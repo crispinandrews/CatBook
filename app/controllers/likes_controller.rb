@@ -1,10 +1,10 @@
 class LikesController < ApplicationController
   respond_to :html, :js
 
-  def new
-    @post = Post.find(params[:post_id])
-    @like = Like.new
-  end
+  # def new
+  #   @post = Post.find(params[:post_id])
+  #   @like = Like.new
+  # end
 
   def create
     @post = Post.find(params[:post_id])

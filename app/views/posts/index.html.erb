@@ -19,7 +19,7 @@
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <p><%= comment.comments %><p>
-          <%= link_to "Like", new_comment_like_path(comment), class: 'comment_likes-link' %>
+          <%= link_to "Like", new_comment_comment_like_path(comment), class: 'comment-likes-link' %>
           <span class="comment_likes_count"> <%= comment.comment_likes.count %> </span> <%= 'like'.pluralize(comment.comment_likes.count) %>
         <% end %>
       <% end %>

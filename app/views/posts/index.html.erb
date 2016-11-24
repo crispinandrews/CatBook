@@ -18,11 +18,12 @@
       <% end %>
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
-          <div class="petname_and_time">
+          <div class="">
             <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a>:
-            <%= comment.comments %>
+            <%= comment.comments %> <br/>
+            <%= time_ago_in_words(comment.created_at) + " ago" %>
           <div>
-          <span class="time_ago"><%= time_ago_in_words(comment.created_at) + " ago" %><span>
+
         <% end %>
       <% end %>
       <div class="react_and_comment">

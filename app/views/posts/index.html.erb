@@ -2,7 +2,7 @@
   <% @posts.each do |post| %>
     <div class="whitebox">
       <div class="post_header">
-        <%= image_tag post.user.image.url(:thumb) %>
+        <div class="profile_pic"><%= image_tag post.user.image.url(:thumb) %></div>
         <div class="petname_and_time">
           <a href="/<%= post.user.petname %>"><%= post.user.petname %></a><br>
           <span class="time_ago"><%= time_ago_in_words(post.created_at) + " ago" %><span>

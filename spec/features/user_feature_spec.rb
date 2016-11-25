@@ -37,3 +37,16 @@ feature "User can sign in and out" do
     end
   end
 end
+
+feature 'Profile' do
+  context 'Profile picture' do
+    scenario 'can be uploaded' do
+      sign_up
+      visit_profile
+      click_link "Add Profile Picture"
+      attach_file('Image', "spec/files/images/businesscat.jpg")
+      click_button "Upload Profile Picture"
+      expect(page).to have_css("img[src*='businesscat.jpg']")
+    end
+  end
+end

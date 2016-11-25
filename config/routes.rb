@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         resources :comment_likes
       end
       resources :likes
+      resources :hisses
   end
   resources :relationships
   get ':petname', to: 'profiles#show', as: :profile

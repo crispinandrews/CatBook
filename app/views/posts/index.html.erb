@@ -30,8 +30,12 @@
         <% end %>
       <% end %>
       <div class="react_and_comment">
+        <% if current_user.has_liked?(post) %>
+          <% link_to "Like", post_likes_path(post), method: :delete %>
+        <% else %>
         <%= link_to "Like", post_likes_path(post), class: 'likes-link' %> |
         <span class="likes_count"> <%= post.likes.count - post.hisses.count %> </span> <%= 'like'.pluralize(post.likes.count) %> |
+        <% end %>
         <%= link_to "Hiss", post_hisses_path(post), class: 'hisses-link' %> |
         <!-- <span class="hisses_count"> <%= post.hisses.count %> </span> <%= 'hiss'.pluralize(post.hisses.count) %> | -->
         <%= link_to "Edit", edit_post_url(post.id) %> |

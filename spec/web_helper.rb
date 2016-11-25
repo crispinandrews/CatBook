@@ -38,3 +38,8 @@ def edit_post(text)
   fill_in 'post_text', with: text
   click_button 'Edit post'
 end
+
+def visit_profile
+  visit '/'
+  click_link "Your profile (fido)"
+end

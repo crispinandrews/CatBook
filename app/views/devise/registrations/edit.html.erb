@@ -31,10 +31,16 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :profile_picture %> <i>(choose an image)</i><br />
+    <%= f.file_field :image %> <br />
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
+
 
 <h3>Cancel my account</h3>
 

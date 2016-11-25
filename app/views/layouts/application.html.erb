@@ -14,6 +14,17 @@
      <div class="inside_left">
        <p>Hey there. Welcome to CatHub! Thanks for signing up!<p>
        <p>Now go make some friends(or enemies :p) and have some FUN!!!</p>
+       <% unless @users.nil? %>
+        <% @users.each do |user| %>
+          <div class="user">
+            <p>
+              <strong><%= user.petname %></strong>
+              <%= link_to "Add Friend", relationships_path(relation_id: user), method: :post %>
+              <div class="clear"></div>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
      </div>
    </div>
    <div class=aside_right>

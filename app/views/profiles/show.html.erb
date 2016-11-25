@@ -3,6 +3,23 @@
   <h2><%= @user.petname %> Profile Page</h2>
   <p><a href="#">Add your hometown</a></p>
   <p><a href="#">Add your hobbies<a/></p>
+  <h2>Friends</h2>
+  <ul>
+  <% @user.relationships.each do |relationship| %>
+    <li>
+      <%= relationship.relation.petname %>
+      (<%= link_to "remove", relationship, :method => :delete %>)
+    </li>
+  <% end %>
+  </ul>
+  <h2>Friended by Users</h2>
+  <ul>
+  <% if @user.inverse_relations.any? %>
+    <%  @user.inverse_relations.each do |relation| %>
+      <li><%= relation.petname %></li>
+    <% end %>
+  <% end %>
+</ul>
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="whitebox">

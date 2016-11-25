@@ -18,9 +18,15 @@
       <% end %>
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
-          <p><%= comment.comments %><p>
-          <%= link_to "Like", new_comment_comment_like_path(comment), class: 'comment-likes-link' %>
-          <span class="comment_likes_count"> <%= comment.comment_likes.count %> </span> <%= 'like'.pluralize(comment.comment_likes.count) %>
+          <div class="">
+            <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a>:
+            <%= comment.comments %> <br/>
+            <%= time_ago_in_words(comment.created_at) + " ago" %>
+            <%= link_to "Like", new_comment_comment_like_path(comment), class: 'comment-likes-link' %>
+            <span class="comment_likes_count"> <%= comment.comment_likes.count %> </span> <%= 'like'.pluralize(comment.comment_likes.count) %>
+            <%= link_to "Edit", edit_post_comment_url(comment.post.id, comment.id) %>
+            <%= link_to "Delete", post_comment_path(comment.post.id, comment.id), method: :delete %>
+          <div>
         <% end %>
       <% end %>
       <div class="react_and_comment">

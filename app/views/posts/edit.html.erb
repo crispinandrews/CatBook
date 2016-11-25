@@ -1,12 +1,12 @@
 <div class="whitebox">
-  <h1>Create a post</h1>
+  <h1>Edit your post</h1>
   <%= form_for @post, html: {multipart: true, :class => "pure-form pure-form-stacked"} do |f| %>
     <%= field_set_tag do %>
       <%= f.label :image %>
       <%= f.file_field :image %>
       <%= f.label :text %>
       <%= f.text_area :text, id: "post_text" %>
-      <%= f.submit 'Edit post', class: "pure-button pure-button-primary" %>
+      <%= f.submit 'Edit Post', class: "pure-button pure-button-primary" %>
     <% end %>
   <% end %>
 </div>

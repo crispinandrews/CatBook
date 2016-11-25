@@ -36,4 +36,13 @@ feature "User can sign in and out" do
       expect(page).not_to have_link('Sign up')
     end
   end
+
+  context 'an invalid username' do
+    scenario 'does not let you submit a name that is taken' do
+      sign_up
+      sign_out
+      sign_up
+      expect(page).to have_content 'Petname has already been taken'
+    end
+  end
 end

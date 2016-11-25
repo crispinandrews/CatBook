@@ -158,24 +158,26 @@ a.pure-button-primary {
   height: auto;
   overflow: hidden;
   float: left;
-  border-right: solid black 2px;
+  border-right: solid #333 1px;
   height: 100%;
 }
 
 .inside_left {
-  background-color: grey;
-  border: solid black 1px;
-  width: 90%;
-  height: 50%;
-  margin: 0 auto;
+  width: 80%;
+  margin: auto;
   height: inherit;
   text-align: left;
+  color: #333;
 }
 
-.inside_left p {
-  color: black;
-  padding-left: 5px;
-  padding-right: 5px;
+.inside_left ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.inside_left li {
+  display: block;
+  height: 80px;
 }
 
 .aside_right {
@@ -189,10 +191,9 @@ a.pure-button-primary {
 }
 
 .inside_right {
-  border: solid black 1px;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
-  height: 200px;
+  height: 400px;
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;

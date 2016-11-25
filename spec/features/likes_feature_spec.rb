@@ -16,12 +16,10 @@ feature 'liking posts' do
     expect(page).to have_content('1 Hiss')
   end
 
-
-  # scenario 'a cat and like a commment', js: true do
-  #   click_link 'Comments'
-  #   fill_in 'Comments', with: 'This is a comment'
-  #   click_button 'Leave Comment'
-  #   click_link 'like-comment'
-  #   expect(page).to have_content('1 like')
-  # end
-end
+  scenario 'a cat can only like a post once', js: true do
+    click_link 'Like'
+    visit '/posts'
+    click_link 'Like'
+    expect(page).to have_content ('1 like')
+   end
+ end

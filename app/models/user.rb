@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :liked_posts, through: :likes, source: :post
+  has_many :hisses
+  has_many :hissed_posts, through: :hisses, source: :post
   has_many :commented_posts, through: :comments, source: :post
   has_many :relationships
   has_many :relations, through: :relationships, source: :relation
@@ -13,4 +15,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :petname, uniqueness: true
+
+  def has_liked?(post)
+    liked_posts.include?(post)
+  end
 end

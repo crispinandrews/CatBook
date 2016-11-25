@@ -26,7 +26,8 @@
  <% end %>
   <div class="react_and_comment">
     <%= link_to "Like", post_likes_path(@post), class: 'likes-link' %> |
-    <span class="likes_count"> <%= @post.likes.count %> </span> <%= 'like'.pluralize(@post.likes.count) %> |
+    <span class="likes_count"> <%= @post.likes.count - @post.hisses.count %> </span> <%= 'like'.pluralize(@post.likes.count) %> |
+    <%= link_to "Hiss", post_hisses_path(@post), class: 'hisses-link' %> |
     <%= link_to "Edit", edit_post_url(@post.id) %> |
     <%= link_to "Delete", post_path(@post) %> |
     <%= link_to "Comments", new_post_comment_path(@post) %>

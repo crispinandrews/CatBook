@@ -14,8 +14,10 @@
   </ul>
   <h2>Friended by Users</h2>
   <ul>
-  <%  @user.inverse_relations.each do |relation| %>
-    <li><%= relation.user.petname %></li>
+  <% if @user.inverse_relations.any? %>
+    <%  @user.inverse_relations.each do |relation| %>
+      <li><%= relation.petname %></li>
+    <% end %>
   <% end %>
 </ul>
   <% if @posts.any? %>

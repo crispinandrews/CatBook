@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :inverse_relations, through: :inverse_relationships, source: :user
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :petname, uniqueness: true
 end

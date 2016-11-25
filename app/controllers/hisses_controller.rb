@@ -4,6 +4,6 @@
   def create
     @post = Post.find(params[:post_id])
     @post.hisses.create
-    render json: {new_hiss_count: @post.hiss.count}
+    render json: {new_like_count: @post.likes.count - @post.hisses.count}
   end
 end

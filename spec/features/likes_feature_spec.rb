@@ -11,11 +11,17 @@ feature 'liking posts' do
     expect(page).to have_content('1 like')
   end
 
-  scenario 'a cat and like a commment', js: true do
-    click_link 'Comments'
-    fill_in 'Comments', with: 'This is a comment'
-    click_button 'Leave Comment'
-    click_link 'like-comment'
-    expect(page).to have_content('1 like')
+  scenario 'a cat can hiss a post', js: true do
+    click_link 'Hiss'
+    expect(page).to have_content('1 Hiss')
   end
+
+
+  # scenario 'a cat and like a commment', js: true do
+  #   click_link 'Comments'
+  #   fill_in 'Comments', with: 'This is a comment'
+  #   click_button 'Leave Comment'
+  #   click_link 'like-comment'
+  #   expect(page).to have_content('1 like')
+  # end
 end

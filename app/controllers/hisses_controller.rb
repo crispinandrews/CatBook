@@ -3,7 +3,7 @@
 
   def create
     @post = Post.find(params[:post_id])
-    @post.hisses.create(user: current_user)
+    @post.hisses.create
     render json: {new_hiss_count: @post.hiss.count}
   end
 end

@@ -37,7 +37,6 @@
         <%= link_to "Edit", edit_post_url(post.id) %> |
         <%= link_to "Delete", post_path(post), method: :delete %> |
         <%= link_to "Comments", new_post_comment_path(post.id) %>
-      </div>
     </div>
   <% end %>
 <% else %>

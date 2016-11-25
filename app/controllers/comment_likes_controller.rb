@@ -1,10 +1,10 @@
 class CommentLikesController < ApplicationController
   respond_to :html, :js
 
-  # def new
-  #   @comment = Comment.find(params[:comment_id])
-  #   @like = Like.new
-  # end
+  def new
+    @comment = Comment.find(params[:comment_id])
+    @comment_like = CommentLike.new
+  end
 
   def create
     @comment = Comment.find(params[:comment_id])

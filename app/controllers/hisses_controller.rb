@@ -1,4 +1,4 @@
-class HissesController < ApplicationController
+  class HissesController < ApplicationController
   respond_to :html, :js
 
   def create

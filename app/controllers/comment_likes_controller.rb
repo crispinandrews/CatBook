@@ -1,5 +1,6 @@
 class CommentLikesController < ApplicationController
   respond_to :html, :js
+  before_action :authenticate_user!
 
   # def new
   #   @comment = Comment.find(params[:comment_id])

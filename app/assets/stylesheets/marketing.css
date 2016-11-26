@@ -258,3 +258,19 @@ textarea#post_text {
   width: 3%;
   vertical-align: middle;
 }
+
+.comment_hisses_count {
+  color: red;
+}
+
+.comment_likes_count {
+  color: green;
+}
+
+.commenthisses-link {
+  font-weight: bold;
+}
+
+.commentlikes-link {
+  font-weight: bold;
+}

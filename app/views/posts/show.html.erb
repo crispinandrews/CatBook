@@ -15,10 +15,14 @@
     </a>
   <% end %>
   <% if @comments.any? %>
-   <% @comments.each do |c| %>
+   <% @comments.each do |comment| %>
    <div class="comments">
-     <p><%= c.comments %></p>
-     <p><%= c.created_at.strftime("%d %b %Y - %H:%M") %></p>
+     <p><%= comment.created_at.strftime("%d %b %Y - %H:%M") %></p>
+     <p><%= comment.comments %></p>
+     <%= link_to "Like |", comment_comment_likes_path(comment), class: 'commentlikes-link' %>
+     <span class="comment_likes_count"> <%= comment.comment_likes.count %> </span> <%= 'like'.pluralize(comment.comment_likes.count) %> |
+     <%= link_to "Hiss |", comment_comment_hisses_path(comment), class: 'commenthisses-link' %>
+     <span class="comment_hisses_count"> <%= comment.comment_hisses.count %> </span> <%= 'hiss'.pluralize(comment.comment_likes.count) %> |
    </div>
    <% end %>
  <% else %>

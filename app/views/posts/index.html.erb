@@ -19,16 +19,16 @@
       <div class="react_and_comment">
         <%= link_to "Like", post_likes_path(post), class: 'likes-link' %> |
         <%= link_to "Hiss", post_hisses_path(post), class: 'hisses-link' %> |
-        <%= link_to "Comment", new_post_comment_path(post.id) %> |
         <%= link_to "Edit", edit_post_url(post.id) %> |
         <%= link_to "Delete", post_path(post), method: :delete %> |
-        <span class="likes_count"> <%= post.likes.count - post.hisses.count %> </span> <%= 'like'.pluralize(post.likes.count) %>
-        <!-- | <span class="hisses_count"> <%= post.hisses.count %> </span> <%= 'hiss'.pluralize(post.hisses.count) %> -->
+        <!-- <span class="likes_count"> <%= post.likes.count - post.hisses.count %> </span> <%= 'like'.pluralize(post.likes.count) %> -->
+        <span class="comment_likes_count"> <%= post.likes.count %></span> <%= 'like'.pluralize(post.likes.count) %> |
+        <span class="comment_hisses_count"> <%= post.hisses.count %></span> <%= 'hiss'.pluralize(post.hisses.count) %>
       </div>
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <div class="comment">
-            <div class="profile_pic"><%= image_tag comment.user.image.url(:thumb) %></div>
+            <%= image_tag comment.user.image.url(:thumb), class: 'comment_pic' %>
             <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a> <%= comment.comments %> <br/>
             <span class="time_ago"><%= comment.created_at.strftime("%d %b %Y - %H:%M") %> </span>
             <div>
@@ -44,10 +44,13 @@
           </div>
         <% end %>
       <% end %>
-      <%= form_for [post, post.comments.new] do |f| %>
-       <%= f.text_area :comments, placeholder: 'Add a comment' %>
-       <%= f.submit 'Comment' %>
-     <% end %><br>
+      <div class="comment_form">
+        <%= image_tag current_user.image.url(:thumb), class: 'comment_pic' %>
+        <%= form_for [post, post.comments.new] do |f| %>
+         <%= f.text_area :comments, placeholder: 'Add a comment' %>
+         <%= f.submit 'Comment', class: "comment_button"%>
+     <% end %>
+      </div>
     </div>
   <% end %>
   <% else %>

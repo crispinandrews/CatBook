@@ -243,6 +243,25 @@ a.pure-button-primary {
   margin-right: 10px;
 }
 
+.comment_pic {
+  float: left;
+  width:35px;
+  height:35px;
+  margin-right: 10px;
+}
+
+.comment_form {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.comment_form textarea {
+  width: 70%;
+  height: 35px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+}
+
 .profile_pic_display {
   float: center;
   width:300px;
@@ -261,6 +280,18 @@ textarea#post_text {
 	height: 80px;
 	border: 1px solid #cccccc;
 	padding: 5px;
+
+}
+
+.comment_button {
+  background-color: #eee;
+  color: #777;
+  border-radius: 5px;
+  margin: 0;
+  padding: 8px;
+  vertical-align: top;
+  height: 35px;
+  font-size: 90%;
 }
 
 .remember_me_check_box {

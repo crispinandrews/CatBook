@@ -34,14 +34,20 @@
             <div>
               <%= link_to "Like", comment_comment_likes_path(comment), class: 'commentlikes-link' %> |
               <%= link_to "Hiss", comment_comment_hisses_path(comment), class: 'commenthisses-link' %> |
+              <% if comment.user == current_user %>
               <%= link_to "Edit", edit_comment_url(comment) %> |
               <%= link_to "Delete", comment_path(comment), method: :delete %> |
+              <% end %>
               <span class="comment_likes_count"> <%= comment.comment_likes.count %></span> <%= 'like'.pluralize(comment.comment_likes.count) %> |
               <span class="comment_hisses_count"> <%= comment.comment_hisses.count %></span> <%= 'hiss'.pluralize(comment.comment_likes.count) %>
             </div>
           </div>
         <% end %>
       <% end %>
+      <%= form_for [post, post.comments.new] do |f| %>
+       <%= f.text_area :comments, placeholder: 'Add a comment' %>
+       <%= f.submit 'Comment' %>
+     <% end %><br>
     </div>
   <% end %>
   <% else %>

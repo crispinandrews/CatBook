@@ -28,12 +28,15 @@
  <% else %>
    <p>No comments have been added yet.</p>
  <% end %>
+ <%= form_for [@post, @post.comments.new] do |f| %>
+  <%= f.text_area :comments, placeholder: 'Add a comment' %>
+  <%= f.submit 'Comment' %>
+<% end %><br>
   <div class="react_and_comment">
     <%= link_to "Like", post_likes_path(@post), class: 'likes-link' %> |
     <span class="likes_count"> <%= @post.likes.count - @post.hisses.count %> </span> <%= 'like'.pluralize(@post.likes.count) %> |
     <%= link_to "Hiss", post_hisses_path(@post), class: 'hisses-link' %> |
     <%= link_to "Edit", edit_post_url(@post.id) %> |
     <%= link_to "Delete", post_path(@post) %> |
-    <%= link_to "Comments", new_post_comment_path(@post) %>
   </div>
 </div>

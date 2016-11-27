@@ -11,46 +11,10 @@
      <%= render 'shared/user_management' %>
    </div>
    <div class=aside_left>
-     <div class="inside_left">
-       <p>Hey there. Welcome to CatHub! Thanks for signing up!<p>
-       <p>Now go make some friends(or enemies :p) and have some FUN!!!</p>
-       <% unless @users.nil? %>
-        <% @users.each do |user| %>
-          <div class="user">
-            <p>
-              <strong><%= user.petname %></strong>
-              <%= link_to "Add Friend", relationships_path(relation_id: user), method: :post %>
-              <div class="clear"></div>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-     </div>
+    <%= render 'shared/aside_left' %>
    </div>
    <div class=aside_right>
-     <div class="inside_right">
-       <a class="twitter-timeline" href="https://twitter.com/Cats">Tweets by Cats</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-     </div>
-     <div class="inside_right">
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-       <a href="http://www.google.com">Google</a><br>
-     </div>
+    <%= render 'shared/aside_right' %>
    </div>
    <div class="main">
      <p class="notice"><%= notice %></p>

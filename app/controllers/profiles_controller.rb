@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   before_action :owned_profile, only: [:edit, :update]
 
   def show
+    @users = User.all
     @user = User.find_by(petname: params[:petname])
     @posts = User.find_by(petname: params[:petname]).posts.order('created_at DESC')
   end

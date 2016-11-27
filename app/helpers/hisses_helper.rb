@@ -1,0 +1,2 @@
+module HissesHelper
+end

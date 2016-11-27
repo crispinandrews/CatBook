@@ -138,18 +138,10 @@ a.pure-button-primary {
   color: white;
 }
 
- .sidebar {
+.sidebar {
   background: rgb(61, 79, 93);
   color: #fff;
  }
-
-.main {
-  width: 50%;
-  margin: auto;
-  margin-top: 70px;
-  margin-bottom: 30px;
-  overflow: hidden;
-}
 
 .aside_left {
   width: 20%;
@@ -158,8 +150,8 @@ a.pure-button-primary {
   height: auto;
   overflow: hidden;
   float: left;
-  border-right: solid #333 1px;
-  height: 100%;
+  border-right: dotted #999 1px;
+  height: 200%;
 }
 
 .inside_left {
@@ -186,39 +178,62 @@ a.pure-button-primary {
   margin-bottom: 30px;
   overflow: hidden;
   float: right;
-  border-left: dashed black 2px;
-  height: 150%;
+  border-left: dotted #999 1px;
+  height: 200%;
 }
 
 .inside_right {
-  width: 80%;
-  margin: 0 auto;
-  height: 400px;
+  width: 90%;
+  margin: auto;
+  height: 800px;
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;
   overflow: scroll;
-  height: 250px;
 }
 
-.inside_right a {
+.main {
+  width: 50%;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .main a {
-  text-decoration: none;
   color: #333;
 }
 
 .whitebox {
   background: #fff;
   color: #333;
-  margin-bottom: 30px;
+  border: 1px solid #ccc;
   padding: 20px;
-  border-radius: 10px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.petname {
+  font-weight: bold;
 }
 
 .post_text {
   font-weight: normal
+}
+
+.react_and_comment {
+  border-top: 1px dotted #CCC;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #888;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.comment {
+  background: #eee;
+  padding: 10px;
+  font-size: 90%;
 }
 
 .profile_pic {
@@ -233,24 +248,11 @@ a.pure-button-primary {
   font-size: 90%;
 }
 
-.react_and_comment {
-  border-top: 1px solid #CCC;
-  padding-top: 10px;
-  color: #888;
-  font-size: 90%;
-  font-weight: bold;
-}
-
 textarea#post_text {
 	width: 100%;
 	height: 80px;
 	border: 1px solid #cccccc;
 	padding: 5px;
-}
-
-.post_links {
-  border-top: 1px solid #CCC;
-  padding-top: 10px;
 }
 
 .remember_me_check_box {

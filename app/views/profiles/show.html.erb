@@ -1,25 +1,31 @@
 <div class="whitebox">
   <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
-  <h2><%= @user.petname %> Profile Page</h2>
-  <p><a href="#">Add your hometown</a></p>
-  <p><a href="#">Add your hobbies<a/></p>
-  <h2>Friends</h2>
+  <h1><%= @user.petname.capitalize %>'s Profile</h1>
+  <p><a href="#">Add your hometown</a> | <a href="#">Add your hobbies<a/></p>
+
+  <h2>Friends you've added</h2>
   <ul>
   <% @user.relationships.each do |relationship| %>
     <li>
+      <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
       <%= relationship.relation.petname %>
       (<%= link_to "remove", relationship, :method => :delete %>)
     </li>
   <% end %>
   </ul>
-  <h2>Friended by Users</h2>
+  <h2>Friends who've added you</h2>
   <ul>
   <% if @user.inverse_relations.any? %>
     <%  @user.inverse_relations.each do |relation| %>
-      <li><%= relation.petname %></li>
+      <li>
+        <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+        <%= relation.petname %>
+      </li>
     <% end %>
   <% end %>
-</ul>
+  </ul>
+
+<h2>Your posts</h2>
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="whitebox">
@@ -39,7 +45,6 @@
           </a>
         <% end %>
         <div class="react_and_comment">
-          Like | Comment |
           <%= link_to "Edit", edit_post_url(post.id) %> |
           <%= link_to "Delete", post_path(post), method: :delete %>
         </div>

@@ -10,7 +10,7 @@
   <ul>
   <% @user.relationships.each do |relationship| %>
     <li>
-      <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+      <%= image_tag relationship.relation.image.url(:thumb), class: 'profile_pic' %>
       <%= relationship.relation.petname %>
       (<%= link_to "remove", relationship, :method => :delete %>)
     </li>
@@ -21,7 +21,7 @@
   <% if @user.inverse_relations.any? %>
     <%  @user.inverse_relations.each do |relation| %>
       <li>
-        <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+        <%= image_tag relation.image.url(:thumb), class: 'profile_pic' %>
         <%= relation.petname %>
       </li>
     <% end %>

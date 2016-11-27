@@ -227,7 +227,6 @@ a.pure-button-primary {
   padding-bottom: 10px;
   color: #888;
   font-size: 90%;
-  font-weight: bold;
 }
 
 .comment {
@@ -283,6 +282,15 @@ textarea#post_text {
 
 }
 
+.float_right {
+  float: right;
+}
+
+.float_right a {
+  color: #999;
+  font-weight: normal;
+}
+
 .comment_button {
   background-color: #eee;
   color: #777;
@@ -309,9 +317,9 @@ textarea#post_text {
 }
 
 .commenthisses-link {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .commentlikes-link {
-  font-weight: bold;
+  font-weight: normal;
 }

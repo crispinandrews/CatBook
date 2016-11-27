@@ -28,7 +28,7 @@
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <div class="comment">
-            <div class="profile_pic"><%= image_tag post.user.image.url(:thumb) %></div>
+            <div class="profile_pic"><%= image_tag comment.user.image.url(:thumb) %></div>
             <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a> <%= comment.comments %> <br/>
             <span class="time_ago"><%= comment.created_at.strftime("%d %b %Y - %H:%M") %> </span>
             <div>

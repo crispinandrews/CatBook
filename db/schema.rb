@@ -92,6 +92,10 @@ ActiveRecord::Schema.define(version: 20161126164647) do
     t.datetime "updated_at",                          null: false
     t.string   "petname"
     t.integer  "post_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["post_id"], name: "index_users_on_post_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

@@ -1,10 +1,10 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
     <div class="whitebox">
-      <div>
-        <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
-        <div>
-          <a class="petname" href="/<%= post.user.petname %>"><%= post.user.petname %></a><br>
+      <div class="post_header">
+        <div class="profile_pic"><%= image_tag post.user.image.url(:thumb) %></div>
+        <div class="petname_and_time">
+          <a href="/<%= post.user.petname %>"><%= post.user.petname %></a><br>
           <span class="time_ago"><%= time_ago_in_words(post.created_at) + " ago" %><span>
         </div>
       </div>
@@ -28,7 +28,7 @@
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <div class="comment">
-            <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+            <div class="profile_pic"><%= image_tag post.user.image.url(:thumb) %></div>
             <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a> <%= comment.comments %> <br/>
             <span class="time_ago"><%= comment.created_at.strftime("%d %b %Y - %H:%M") %> </span>
             <div>

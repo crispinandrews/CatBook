@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'pure-form' }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true, class: 'pure-form' }) do |f| %>
   <%= devise_error_messages! %>
 
   <fieldset class="pure-group">
@@ -12,9 +12,11 @@
                           autocomplete: "off" %>
       <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "off" %>
     </div>
-
+    <div class="field">
+      <%= f.label :image %> <i>(choose an image)</i><br />
+      <%= f.file_field :image %> <br />
+    </div>
     <%= f.submit "Sign up", class: "pure-button pure-button-primary" %>
-
   </fieldset>
 <% end %>
 

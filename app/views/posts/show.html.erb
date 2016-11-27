@@ -1,6 +1,6 @@
 <div class="whitebox">
   <div class="post_header">
-    <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
+    <div class="profile_pic"><%= image_tag @post.user.image.url(:thumb) %></div>
     <div class="petname_and_time">
       <p><%= @post.user.petname %><br>
       <span class="time_ago"><%= time_ago_in_words(@post.created_at) + " ago" %><span>

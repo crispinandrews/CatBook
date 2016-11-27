@@ -42,6 +42,10 @@
           </div>
         <% end %>
       <% end %>
+      <%= form_for [post, post.comments.new] do |f| %>
+       <%= f.text_area :comments, placeholder: 'Add a comment' %>
+       <%= f.submit 'Comment' %>
+     <% end %><br>
     </div>
   <% end %>
   <% else %>

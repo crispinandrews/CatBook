@@ -1,21 +1,12 @@
 <div class="whitebox">
-<<<<<<< HEAD
   <div class="profile_pic_display"><%= image_tag @user.image.url(:medium) %></div>
   <h2><%= @user.petname %> Profile Page</h2>
-  <p><a href="#">Add your hometown</a></p>
-  <p><a href="#">Add your hobbies<a/></p>
+  <p><a href="#">Add your hometown</a></p><p><a href="#">Add your hobbies<a/></p>
   <p><a href ="/users/edit">Add a profile picture<a/></p>
 </div>
-
 <div class="whitebox">
   <h2>Friends</h2>
-=======
-  <img src="/images/avatars/cat_temp_profile_pic.png" class="profile_pic" />
-  <h1><%= @user.petname.capitalize %>'s Profile</h1>
-  <p><a href="#">Add your hometown</a> | <a href="#">Add your hobbies<a/></p>
-
   <h2>Friends you've added</h2>
->>>>>>> master
   <ul>
   <% @user.relationships.each do |relationship| %>
     <li>
@@ -36,14 +27,11 @@
     <% end %>
   <% end %>
   </ul>
-<<<<<<< HEAD
 </div>
 
 <div class="whitebox">
-=======
 
 <h2>Your posts</h2>
->>>>>>> master
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="whitebox">

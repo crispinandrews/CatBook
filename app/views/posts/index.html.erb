@@ -1,5 +1,5 @@
-<% if @posts.any? %>
-  <% @posts.each do |post| %>
+<% if @posts_from_friends.any? %>
+  <% @posts_from_friends.each do |post| %>
     <div class="whitebox">
       <div class="post_header">
         <% if post.user == current_user %>

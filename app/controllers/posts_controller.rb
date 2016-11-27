@@ -1,12 +1,24 @@
 class PostsController < ApplicationController
-  
+
+  require 'pp'
+
   before_action :authenticate_user!, :except => [:index, :show]
   before_action :require_permisson, only: [:edit, :update, :destroy]
 
-
   def index
+    @friends = []
+    @posts_from_friends = []
+    if current_user
+      current_user.relations.each do |user|
+        @friends << user
+      end
+      current_user.inverse_relations.each do |user|
+        @friends << user
+      end
+      @friends << current_user
+      get_friends_posts
+    end
     @users = User.all
-    @posts = Post.all.order("created_at DESC")
     @user = current_user
   end
 
@@ -59,6 +71,34 @@ class PostsController < ApplicationController
     if current_user != post.user
       flash[:notice] = 'You are not the owner of this post'
       redirect_to posts_path
+    end
+  end
+
+  def get_posts
+    if current_user
+      consolidate_friends
+      @friends << current_user
+      get_friends_posts
+    end
+  end
+
+  def consolidate_friends
+    @friends << current_user.relations
+    @friends << current_user.inverse_relations
+  end
+
+  def get_friends_posts
+    @friends.each do |friend|
+      unless friend.posts.nil?
+        friend.posts.each do |post|
+          @posts_from_friends << post
+        end
+      end
+      puts "****** BEFORE SORTING *******"
+      pp @posts_from_friends
+      @posts_from_friends = @posts_from_friends.sort_by { |m| [m.created_at, m.updated_at].max }.reverse!.take(3)
+      puts "****** AFTER SORTING *******"
+      pp @posts_from_friends
     end
   end
 end

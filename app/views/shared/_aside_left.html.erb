@@ -9,7 +9,7 @@
        <% unless user == current_user %>
          <% unless current_user.relations.include?(user) || current_user.inverse_relations.include?(user)  %>
                <li>
-                 <img src="/images/avatars/cat_temp_profile_pic.png">
+                 <%= image_tag user.image.url(:thumb) %>
                  <strong><%= user.petname %></strong>
                  <%= link_to "Add Friend", relationships_path(relation_id: user), method: :post %>
                </li>

@@ -2,9 +2,15 @@
   <% @posts.each do |post| %>
     <div class="whitebox">
       <div class="post_header">
+        <% if post.user == current_user %>
+          <span class="float_right">
+            <%= link_to "Edit", edit_post_url(post.id) %> |
+            <%= link_to "Delete", post_path(post), method: :delete %>
+          </span>
+        <% end %>
         <div class="profile_pic"><%= image_tag post.user.image.url(:thumb) %></div>
         <div class="petname_and_time">
-          <a href="/<%= post.user.petname %>"><%= post.user.petname %></a><br>
+          <a class="petname" href="/<%= post.user.petname %>"><%= post.user.petname %></a><br>
           <span class="time_ago"><%= time_ago_in_words(post.created_at) + " ago" %><span>
         </div>
       </div>
@@ -17,40 +23,40 @@
         </a>
       <% end %>
       <div class="react_and_comment">
-        <%= link_to "Like", post_likes_path(post), class: 'likes-link' %> |
-        <%= link_to "Hiss", post_hisses_path(post), class: 'hisses-link' %> |
-        <%= link_to "Edit", edit_post_url(post.id) %> |
-        <%= link_to "Delete", post_path(post), method: :delete %> |
-        <!-- <span class="likes_count"> <%= post.likes.count - post.hisses.count %> </span> <%= 'like'.pluralize(post.likes.count) %> -->
-        <span class="comment_likes_count"> <%= post.likes.count %></span> <%= 'like'.pluralize(post.likes.count) %> |
-        <span class="comment_hisses_count"> <%= post.hisses.count %></span> <%= 'hiss'.pluralize(post.hisses.count) %>
+        <%= link_to "Purr", post_likes_path(post), class: 'likes-link' %> |
+        <%= link_to "Hiss", post_hisses_path(post), class: 'hisses-link' %>
+        <span class="likes_count"> <%= post.likes.count - post.hisses.count %> </span> <%= 'purr'.pluralize(post.likes.count) %>
       </div>
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <div class="comment">
+            <% if comment.user == current_user %>
+              <span class="float_right">
+                <%= link_to "Edit", edit_comment_url(comment) %> |
+                <%= link_to "Delete", comment_path(comment), method: :delete %>
+              </span>
+            <% end %>
             <%= image_tag comment.user.image.url(:thumb), class: 'comment_pic' %>
-            <a href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a> <%= comment.comments %> <br/>
-            <span class="time_ago"><%= comment.created_at.strftime("%d %b %Y - %H:%M") %> </span>
-            <div>
-              <%= link_to "Like", comment_comment_likes_path(comment), class: 'commentlikes-link' %> |
+            <a class="petname" href="/<%= comment.user.petname %>"> <%= comment.user.petname %></a> <%= comment.comments %> <br/>
+            <span class="time_ago">
+              <%= link_to "Purr", comment_comment_likes_path(comment), class: 'commentlikes-link' %> |
               <%= link_to "Hiss", comment_comment_hisses_path(comment), class: 'commenthisses-link' %> |
-              <% if comment.user == current_user %>
-              <%= link_to "Edit", edit_comment_url(comment) %> |
-              <%= link_to "Delete", comment_path(comment), method: :delete %> |
-              <% end %>
-              <span class="comment_likes_count"> <%= comment.comment_likes.count %></span> <%= 'like'.pluralize(comment.comment_likes.count) %> |
-              <span class="comment_hisses_count"> <%= comment.comment_hisses.count %></span> <%= 'hiss'.pluralize(comment.comment_likes.count) %>
-            </div>
+              <span class="comment_likes_count"><%= comment.comment_likes.count %> <%= 'purr'.pluralize(comment.comment_likes.count) %></span>
+              <span class="comment_hisses_count"><%= comment.comment_hisses.count %> <%= 'hiss'.pluralize(comment.comment_hisses.count) %></span> |
+              <%= comment.created_at.strftime("%d %b %Y %H:%M") %>
+            </span>
           </div>
         <% end %>
       <% end %>
-      <div class="comment_form">
-        <%= image_tag current_user.image.url(:thumb), class: 'comment_pic' %>
-        <%= form_for [post, post.comments.new] do |f| %>
-         <%= f.text_area :comments, placeholder: 'Add a comment' %>
-         <%= f.submit 'Comment', class: "comment_button"%>
-     <% end %>
-      </div>
+      <% if current_user %>
+        <div class="comment_form">
+          <%= image_tag current_user.image.url(:thumb), class: 'comment_pic' %>
+          <%= form_for [post, post.comments.new] do |f| %>
+          <%= f.text_area :comments, placeholder: 'Add a comment' %>
+          <%= f.submit 'Comment', class: "comment_button"%>
+       <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
   <% else %>

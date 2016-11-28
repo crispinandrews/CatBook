@@ -9,13 +9,7 @@ class PostsController < ApplicationController
     @friends = []
     @posts_from_friends = []
     if current_user
-      current_user.relations.each do |user|
-        @friends << user
-      end
-      current_user.inverse_relations.each do |user|
-        @friends << user
-      end
-      @friends << current_user
+      consolidate_friends
       get_friends_posts
     end
     @users = User.all
@@ -74,17 +68,14 @@ class PostsController < ApplicationController
     end
   end
 
-  def get_posts
-    if current_user
-      consolidate_friends
-      @friends << current_user
-      get_friends_posts
-    end
-  end
-
   def consolidate_friends
-    @friends << current_user.relations
-    @friends << current_user.inverse_relations
+    current_user.relations.each do |user|
+      @friends << user
+    end
+    current_user.inverse_relations.each do |user|
+      @friends << user
+    end
+    @friends << current_user
   end
 
   def get_friends_posts
@@ -94,11 +85,7 @@ class PostsController < ApplicationController
           @posts_from_friends << post
         end
       end
-      puts "****** BEFORE SORTING *******"
-      pp @posts_from_friends
-      @posts_from_friends = @posts_from_friends.sort_by { |m| [m.created_at, m.updated_at].max }.reverse!.take(3)
-      puts "****** AFTER SORTING *******"
-      pp @posts_from_friends
     end
+    @posts_from_friends = @posts_from_friends.sort_by { |m| [m.created_at, m.updated_at].max }.reverse!
   end
 end

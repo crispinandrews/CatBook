@@ -1,3 +1,21 @@
 <div class="inside_right">
-  <a class="twitter-timeline" href="https://twitter.com/Cats">Tweets by Cats</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <% if current_user %>
+    <h3>Your Friends</h3>
+    <% unless @friends.nil? %>
+     <ul>
+     <% @friends.each do |friend| %>
+       <% unless friend == current_user %>
+         <li>
+           <%= image_tag friend.image.url(:thumb) %>
+           <a class="petname" href="/<%= friend.petname %>"><%= friend.petname %></a>
+         </li>
+       <% end %>
+     <% end %>
+     </ul>
+   <% end %>
+  <% end %>
 </div>
+
+ <!-- <div>
+  <a class="twitter-timeline" href="https://twitter.com/Cats">Tweets by Cats</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div> -->

@@ -172,6 +172,16 @@ a.pure-button-primary {
   height: 80px;
 }
 
+.friends_list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.friends_list li {
+  display: block;
+  height: 80px;
+}
+
 .aside_right {
   width: 20%;
   margin: auto;
@@ -185,11 +195,20 @@ a.pure-button-primary {
 .inside_right {
   width: 90%;
   margin: auto;
-  height: 800px;
   margin-bottom: 10px;
   padding: 10px;
-  text-align: center;
-  overflow: scroll;
+  text-align: left;
+}
+
+.inside_right ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.inside_right li {
+  display: block;
+  height: 80px;
+  color: #333;
 }
 
 .main {

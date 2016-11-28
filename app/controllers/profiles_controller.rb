@@ -5,42 +5,28 @@ class ProfilesController < ApplicationController
   before_action :owned_profile, only: [:edit, :update]
 
   def show
+    @friends = []
+    if current_user
+      consolidate_friends
+    end
     @users = User.all
     @user = User.find_by(petname: params[:petname])
     @posts = User.find_by(petname: params[:petname]).posts.order('created_at DESC')
   end
 
-  def edit
-    @user = User.find_by(petname: params[:petname])
-  end
+  private
 
-  def update
-    @user = User.find_by(petname: params[:petname])
-    if @user.update(profile_params)
-      flash[:success] = 'Your profile has been updated.'
-      redirect_to profile_path(@user.petname)
-    else
-      @user.errors.full_messages
-      flash[:error] = @user.errors.full_messages
-      render :edit
+  def consolidate_friends
+    current_user.relations.each do |user|
+      @friends << user
+    end
+    current_user.inverse_relations.each do |user|
+      @friends << user
     end
   end
-
-  private
 
   def set_user
     @user = User.find_by(petname: params[:petname])
   end
 
-  def profile_params
-    params.require(:user).permit(:avatar, :bio)
-  end
-
-  def owned_profile
-    @user = User.find_by(petname: params[:petname])
-    unless current_user == @user
-      flash[:alert] = "You can't edit other peoples profiles."
-      redirect_to root_path
-    end
-  end
 end

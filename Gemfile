@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 # gem 'purecss'
+gem 'rails_12factor'
 gem 'poltergeist'
 gem 'database_cleaner'
 gem 'devise'

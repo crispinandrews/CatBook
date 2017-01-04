@@ -2,9 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    if @user.persisted?
-      ApplicationMailer.send_new_user_message(@user).deliver
-    end
   end
 
   private

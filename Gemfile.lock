@@ -118,6 +118,8 @@ GEM
       websocket-driver (>= 0.2.0)
     public_suffix (2.0.4)
     puma (3.6.0)
+    purecss (0.5.0.2)
+      rails (>= 3.1)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -230,6 +232,7 @@ DEPENDENCIES
   pg (~> 0.18)
   poltergeist
   puma (~> 3.0)
+  purecss
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor
   rspec-rails

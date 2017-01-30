@@ -10,7 +10,7 @@
         <li>
           <%= image_tag relationship.relation.image.url(:thumb), class: 'profile_pic' %>
           <%= relationship.relation.petname %>
-          (<%= link_to "remove", relationship, :method => :delete %>)
+          <%= link_to "remove", relationship, :method => :delete %>)
         </li>
       <% end %>
       </ul>

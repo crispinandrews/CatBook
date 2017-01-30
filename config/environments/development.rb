@@ -43,7 +43,7 @@ Rails.application.configure do
     user_name: "cathubclonezone@gmail.com",
     password: "Cat_hub_clone!"
   }
-  config.action_mailer.asset_host = "http://localhost:3000"
+  config.action_mailer.asset_host = "https://localhost:3000"
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

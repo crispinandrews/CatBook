@@ -1,7 +1,6 @@
 <div class="inside_left">
   <% if current_user %>
-    <p>Hey there. Welcome to CatHub! Thanks for signing up!<p>
-    <p>Now go make some friends(or enemies :p) and have some FUN!!!</p>
+    <p>Welcome to CatHub!</p>
     <h3>Cats in Da Hub</h3>
     <% unless @users.nil? %>
      <ul>
@@ -21,6 +20,7 @@
      </ul>
    <% end %>
    <% else %>
-   <p>Hey there. Welcome to CatHub! Sign up or sign in!<p>
+   <p>Welcome to CatHub!</p>
+   <p>Sign Up or Sign In.<p>
  <% end %>
 </div>

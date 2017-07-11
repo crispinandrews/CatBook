@@ -7,8 +7,8 @@ feature 'liking posts' do
   end
 
   scenario 'a cat can like a post', js: true do
-    click_link 'Like'
-    expect(page).to have_content('1 like')
+    click_link 'Purr'
+    expect(page).to have_content('1 purrs')
   end
 
   scenario 'a cat can hiss a post', js: true do

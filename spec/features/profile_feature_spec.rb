@@ -9,9 +9,9 @@ feature 'profile' do
   context 'no posts have been added' do
     scenario 'should display a prompt to add a post' do
       visit '/'
-      click_link 'Your profile'
+      click_link 'Your Profile'
       expect(page).to have_content 'fido'
-      expect(page).to have_content 'No posts yet'
+      expect(page).to have_content 'No Posts'
       expect(page).to have_link 'Add your hometown'
       expect(page).to have_link 'Add your hobbies'
     end

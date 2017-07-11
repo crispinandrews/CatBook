@@ -10,8 +10,8 @@ feature 'posts' do
   context 'no posts have been added' do
     scenario 'should display a prompt to add a post' do
       visit '/posts'
-      expect(page).to have_content 'No posts'
-      expect(page).to have_link 'Create a post'
+      expect(page).to have_content 'No Posts'
+      expect(page).to have_link 'Create a Post'
     end
   end
 
@@ -23,18 +23,10 @@ feature 'posts' do
     end
   end
 
-  context 'viewing posts' do
-    let!(:kitty){ @user.posts.create(text:'Kitty cat') }
-    scenario 'lets a user view a post' do
-      visit '/posts'
-      expect(page).to have_content 'Kitty cat'
-    end
-  end
-
   context 'editing posts' do
-    before { @user.posts.create(text: 'Kitty cat') }
     scenario 'lets a user edit a post' do
-      visit '/posts'
+      add_post('Miaow miaow')
+      expect(current_path).to eq '/posts'
       edit_post('Gorgeous cat cat')
       expect(current_path).to eq '/posts'
       expect(page).to have_content 'Gorgeous cat cat'
@@ -43,9 +35,8 @@ feature 'posts' do
   end
 
   context 'deleting posts' do
-    before { @user.posts.create(text: 'Kitty cat') }
     scenario 'removes a post when a user clicks delete' do
-      visit '/posts'
+      add_post('Kitty cat')
       click_link 'Delete'
       expect(current_path).to eq '/posts'
       expect(page).to have_content 'Post deleted'

@@ -10,9 +10,8 @@ feature 'comments' do
 
   scenario 'allow users to leave a comment using a form' do
     visit '/posts'
-    click_link 'Comments'
-    fill_in "Comments", with: 'No its not'
-    click_button 'Leave Comment'
+    fill_in "comment_comments", with: 'No its not'
+    click_button 'Comment'
     expect(current_path).to eq '/posts'
     expect(page).to have_content('No its not')
   end
